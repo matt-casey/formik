@@ -4818,11 +4818,11 @@
         function FieldArrayInner(props) {
             var _this = _super.call(this, props) || this;
             _this.updateArrayField = function (fn, alterTouched, alterErrors) {
-                var _a = _this.props, name = _a.name, validateOnChange = _a.validateOnChange, _b = _a.formik, setFormikState = _b.setFormikState, validateForm = _b.validateForm, values = _b.values, touched = _b.touched, errors = _b.errors;
-                setFormikState(function (prevState) { return (__assign({}, prevState, { values: setIn(prevState.values, name, fn(getIn(values, name))), errors: alterErrors
-                        ? setIn(prevState.errors, name, fn(getIn(errors, name)))
+                var _a = _this.props, name = _a.name, validateOnChange = _a.validateOnChange, _b = _a.formik, setFormikState = _b.setFormikState, validateForm = _b.validateForm;
+                setFormikState(function (prevState) { return (__assign({}, prevState, { values: setIn(prevState.values, name, fn(getIn(prevState.values, name))), errors: alterErrors
+                        ? setIn(prevState.errors, name, fn(getIn(prevState.errors, name)))
                         : prevState.errors, touched: alterTouched
-                        ? setIn(prevState.touched, name, fn(getIn(touched, name)))
+                        ? setIn(prevState.touched, name, fn(getIn(prevState.touched, name)))
                         : prevState.touched })); }, function () {
                     if (validateOnChange) {
                         validateForm();
